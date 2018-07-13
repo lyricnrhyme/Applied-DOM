@@ -129,7 +129,9 @@ function setMyLightClass (event, desiredClass) {
    * using the Function prototype method: call
    * to set the context to the correct object (the current context)
    */
-
+  btn6.addEventListener("click", function() {
+    setMyLightGreen.call(btn6);
+  })
 
   /*
    * Add a click event listener to btn7
@@ -139,6 +141,7 @@ function setMyLightClass (event, desiredClass) {
    * using the Function prototype method: call
    * to set the context to the correct object
    */
+  btn7.addEventListener("click", () => {setMyLightGreen.call(btn7)})
 
 
   /*
@@ -151,6 +154,9 @@ function setMyLightClass (event, desiredClass) {
    * to set the context to the correct object (the current context)
    *   and passing two aditional arguments, event and 'light-green'
    */
+  btn8.addEventListener("click", function(event) {
+    setMyLightClass.call(btn8, event, "light-green")
+  })
 
 
   /*
@@ -163,7 +169,9 @@ function setMyLightClass (event, desiredClass) {
    * to set the context to the correct object
    *   and passing two aditional arguments, event and 'light-green'
    */
-
+  btn9.addEventListener("click", f = event => {
+    setMyLightClass.call(btn9, event, "light-green");
+  })
 
   /*
    * Declare a new const named setLight10Green
@@ -171,7 +179,7 @@ function setMyLightClass (event, desiredClass) {
    * using the Function prototype method: bind
    * to set the context to the btn10 object
    */
-
+  const setLight10Green = setMyLightGreen.bind(btn10);
 
   /*
    * Add a click event listener to btn10
@@ -179,6 +187,9 @@ function setMyLightClass (event, desiredClass) {
    * the body of the event handler function
    * will invoke the setLight10Green function
    */
+  btn10.addEventListener("click", function() {
+    setLight10Green();
+  })
 
 
   /*
@@ -189,6 +200,7 @@ function setMyLightClass (event, desiredClass) {
    *   passing 2 additional hardcoded arguments:
    *     null, 'light-green'
    */
+  const setLight11Green = setMyLightClass.bind(btn11, null, "light-green");
 
 
   /*
@@ -197,7 +209,9 @@ function setMyLightClass (event, desiredClass) {
    * the body of the event handler function
    * will invoke the setLight11Green function
    */
-
+  btn11.addEventListener("click", function() {
+    setLight11Green();
+  })
 
   /*
    * Declare a new const named setLight12Class
@@ -205,6 +219,8 @@ function setMyLightClass (event, desiredClass) {
    * using the Function prototype method: bind
    * to set the context to the btn12 object
    */
+  const setLight12Class = setMyLightClass.bind(btn12);
+  
 
 
   /*
@@ -216,6 +232,9 @@ function setMyLightClass (event, desiredClass) {
    *   passing 2 additional arguments
    *     event, 'light-green'
    */
+  btn12.addEventListener("click", function(event) {
+    setLight12Class(event, "light-green");
+  })
 
 
   /*
@@ -231,6 +250,9 @@ function setMyLightClass (event, desiredClass) {
    *   invoke this function expression passing 2 arguments
    *     event, 'light-green'
    */
+  btn13.addEventListener("click", function(event) {
+    setMyLightClass.bind(this)(event, "light-green");
+  })
 
 
   /*
@@ -239,6 +261,7 @@ function setMyLightClass (event, desiredClass) {
    * that is the result of invoking the Function prototype method, bind
    * on the setMyLightGreen function
    */
+  btn14.addEventListener("click", function() { setMyLightGreen.bind(this)()});
 
 
   /*
@@ -248,6 +271,7 @@ function setMyLightClass (event, desiredClass) {
    *
    * Hint: Do not declare a new function expression as an event handler.
    */
+  btn15.addEventListener("click", setMyLightClass.bind(btn15, event, "light-green"))
 
 
 }(window));
