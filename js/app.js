@@ -30,10 +30,10 @@ function setMyLightGreen () {
    * use a dom method to select an element where it's ID matches the value of lightId
    * on this dom element, set the className to the value of desiredClass
    */
-// function setMyLightClass (event, desiredClass) {
-//   let lightId = this.dataset.lightId;
-//   this.dataset.className = desiredClass;
-// }
+function setMyLightClass (event, desiredClass) {
+  const lightId = this.dataset.lightId;
+  document.getElementById(lightId).className = desiredClass;
+}
 
   /*
    * Declare 15 constants btn1, btn2, btn3, ...
@@ -84,17 +84,15 @@ function setMyLightGreen () {
   //  btn2.addEventListener("click", () => {
   //    setMyLightGreen.apply(this);
   //  })
-  let newBut2;
-  
-  btn2.addEventListener("click", newBut2 = f => {
-    setMyLightGreen.apply(this);
+  btn2.addEventListener("click", () => {
+    setMyLightGreen.apply(btn2);
   });
 
   /*
    * Add a click event listener to btn3
    * the handler method will be a reference to the setMyLightGreen function
    */
-
+  btn3.addEventListener("click", setMyLightGreen);
 
   /*
    * Add a click event listener to btn4
@@ -106,7 +104,9 @@ function setMyLightGreen () {
    * to set the context to the correct object (the current context)
    *   and passing two aditional arguments, event and 'light-green'
    */
-
+  btn4.addEventListener("click", function(event) {
+    setMyLightClass.apply(btn4, [event, "light-green"]);
+  })
 
   /*
    * Add a click event listener to btn5
@@ -118,6 +118,7 @@ function setMyLightGreen () {
    * to set the context to the correct object
    *   and passing two aditional arguments, event and 'light-green'
    */
+  btn5.addEventListener("click", f = event => {setMyLightClass.apply(btn5, [event, "light-green"])})
 
 
   /*
